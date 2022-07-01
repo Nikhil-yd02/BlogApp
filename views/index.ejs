@@ -14,9 +14,6 @@
                         <div class="meta">
                             <span><%= blog.created.toDateString() %></span>
                         </div>
-                        <div class="description">
-                            <p><%- blog.body.substring(0, 100) %>...</p>
-                        </div>
                         <div class="extra">
                             <a class="ui floated inverted violet button" href="/blogs/<%=blog._id%>">
                                 Read more
