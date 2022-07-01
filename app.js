@@ -7,7 +7,7 @@ expressSanitizer = require('express-sanitizer');
 
 
 // App Config
-mongoose.connect("mongodb://localhost/restful_blog_app");
+mongoose.connect("mongodb+srv://nikhil_yd02:<password>@cluster0.lsxlpim.mongodb.net/?retryWrites=true&w=majority");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,12 +22,6 @@ var blogSchema = new mongoose.Schema({
     created: {type: Date, default: Date.now}
 });
 var Blog = mongoose.model("Blog", blogSchema);
-
-// Blog.create({
-//     title: "Test blog",
-//     image: "https://images.unsplash.com/photo-1526505262320-81542978f63b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-//     body: "this is a blog."
-// });
 
 // RESTful Routes
 // Default route
@@ -115,6 +109,7 @@ app.delete("/blogs/:id", function(req, res){
     });
 });
 
-app.listen(3000, function() { 
-    console.log('Server listening on port 3000'); 
+const port = process.env.PORT || 3000
+app.listen(port, function() { 
+    console.log('Server working!'); 
 });
